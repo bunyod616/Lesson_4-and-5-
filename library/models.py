@@ -16,7 +16,7 @@ class Comments(models.Model):
     def __str__(self):
         return self.text
 class Book(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200, verbose_name='Name book')
     description = models.TextField(null=True)
     comments = models.ManyToManyField(Comments)
     price = models.FloatField()
