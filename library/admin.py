@@ -1,9 +1,9 @@
 from django.contrib import admin
 from .models import Book, Author, BookingBook, Comments
-# from import_export.admin import ImportExportModelAdmin
+from import_export.admin import ImportExportModelAdmin
 
 @admin.register(Author)
-class AuthorAdmin(admin.ModelAdmin):
+class AuthorAdmin(ImportExportModelAdmin):
     list_display = ('id', 'first_name', 'last_name', 'birth_date')
     list_display_links = ('id', 'first_name', 'last_name', 'birth_date')
     search_fields = ('first_name', 'last_name', )
@@ -11,7 +11,7 @@ class AuthorAdmin(admin.ModelAdmin):
 
 
 @admin.register(Book)
-class BookAdmin(admin.ModelAdmin):
+class BookAdmin(ImportExportModelAdmin):
     list_display = ('id', 'title', 'description', 'price', 'count', 'author', 'create_date')
     list_display_links = ('id', 'title', 'description', 'price', 'count', 'author', 'create_date')
     search_fields = ('id', 'title', )
@@ -20,7 +20,7 @@ class BookAdmin(admin.ModelAdmin):
 
 
 @admin.register(BookingBook)
-class BookingBookAdmin(admin.ModelAdmin):
+class BookingBookAdmin(ImportExportModelAdmin):
     list_display = ('id', 'student', 'book', 'take_date', 'return_date')
 
     def student(self, obj):
@@ -30,6 +30,6 @@ class BookingBookAdmin(admin.ModelAdmin):
 
 
 @admin.register(Comments)
-class CommentsAdmin(admin.ModelAdmin):
+class CommentsAdmin(ImportExportModelAdmin):
     list_display = ('id', 'text', 'student')
 
