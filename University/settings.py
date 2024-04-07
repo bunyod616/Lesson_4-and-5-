@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = os.getenv('SECRET_KEY')
-SECRET_KEY = 'django-insecure-6^q-th_^)7husoha(&)_6oqvn8b%(4h+5vj5me7xe0yh*^sel8'
+SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -70,27 +70,18 @@ WSGI_APPLICATION = 'University.wsgi.application'
 
 
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": os.getenv('ENGINE'),
-#         "NAME": os.getenv('NAME'),
-#         "USER": os.getenv('USER'),
-#         "PASSWORD": os.getenv('PASSWORD'),
-#         "HOST": os.getenv("HOST"),
-#         "PORT": os.getenv("PORT"),
-#     }
-# }
-
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME":"django_lesson_3",
-        "USER": "postgres",
-        "PASSWORD": "1612",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "ENGINE": os.getenv('ENGINE'),
+        "NAME": os.getenv('NAME'),
+        "USER": os.getenv('USER'),
+        "PASSWORD": os.getenv('PASSWORD'),
+        "HOST": os.getenv("HOST"),
+        "PORT": os.getenv("PORT"),
     }
 }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
