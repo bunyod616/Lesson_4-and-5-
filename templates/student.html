@@ -2,25 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Library</title>
+    <title>studdeent</title>
 </head>
 <body>
-    <h1>hello world it is library page</h1>
+    <h1>hello world it is student page</h1>
     <form>
         {% csrf_token %}
         <input type="search" value="{{search}}" name="search" placeholder="search">
         <button type="submit">Search</button>
     </form>
-    <h2>Books;</h2>
+    <h2>Students;</h2>
     <ul>
-        {% for book in books %}
+        {% for talaba in talabalar %}
         <li>
-            <b><a href="{% url 'book-detail' book.id %}">Id: {{ book.id }} Title: {{ book.title }}</a></b>
+            <b><a href="">{{talaba.first_name }} {{talaba.last_name }} </a></b>
         </li>
     {% endfor %}
     </ul>
-
-
 
 
     <a href="{% url 'landing' %}"> Back</a>
